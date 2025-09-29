@@ -11,13 +11,12 @@ import { usePaginatedQuery, useQuery } from 'convex/react'
 import { ConvexError } from 'convex/values'
 import { Image, Phone, User, Video } from 'lucide-react'
 import { useParams } from 'next/navigation'
+import { useCallback, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
 import z from 'zod'
 import ChatCard from './_components/ChatCard'
-import { useEffect, useRef, useCallback } from 'react'
 
-type Props = {}
 
 const messageSchem = z.object({
   message: z.string().min(1, {
@@ -27,7 +26,7 @@ const messageSchem = z.object({
 
 type sop = z.infer<typeof messageSchem>
 
-const ConversationPage = (props: Props) => {
+const ConversationPage = () => {
   const params = useParams()
 
   const form = useForm<sop>({
@@ -47,7 +46,6 @@ const ConversationPage = (props: Props) => {
     api.conversations.messages.list,
     {
       conversationId: params?.conversationId as any,
-      paginationOpts: { limit: 5 },
     },
     { initialNumItems: 5 },
   );
@@ -121,9 +119,9 @@ const ConversationPage = (props: Props) => {
     return () => container.removeEventListener('scroll', handleScroll);
   }, [handleScroll])
 
-  const handleSubmit = (d: any) => {
+  const handleSubmit = (d: { message: string }) => {
     try {
-      const { message } = form.getValues();
+      const { message } = d;
       createMessage({
         conversationId: params?.conversationId as any,
         body: message

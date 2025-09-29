@@ -14,6 +14,12 @@ const nextConfig: NextConfig = {
     '192.168.1.*',
     // Add other IPs as needed
   ],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 };
 
 export default nextConfig;

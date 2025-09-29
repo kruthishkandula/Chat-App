@@ -1,8 +1,12 @@
 import { Card } from "@/components/ui/card";
 import dayjs from "dayjs";
 
-const ChatCard = ({ ...d }: any) => {
-    let is_u = d?.is_user;
+const ChatCard = ({ ...d }: {
+    message: string,
+    _creationTime: string,
+    is_user: boolean
+}) => {
+    const is_u = d?.is_user;
 
     console.log('d', d)
     return (
