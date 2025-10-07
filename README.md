@@ -1,6 +1,6 @@
 # 💬 Next.js Real-Time Chat Application
 
-A production-ready, full-stack chat application showcasing the power of modern web development. Built with Next.js 14, Convex real-time database, and Clerk authentication, this app delivers a seamless messaging experience with instant updates and enterprise-grade security.
+A production-ready, full-stack chat application showcasing the power of modern web development. Built with Next.js 15, Convex real-time database, and Clerk authentication, this app delivers a seamless messaging experience with instant updates and enterprise-grade security.
 
 ## ✨ Key Features
 
@@ -15,10 +15,10 @@ A production-ready, full-stack chat application showcasing the power of modern w
 
 ## 🚀 Tech Stack
 
-- **Frontend**: Next.js 14 (App Router), React, TypeScript
+- **Frontend**: Next.js 15 (App Router), React, TypeScript
 - **Backend**: Convex (real-time database & serverless functions)
 - **Authentication**: Clerk
-- **Styling**: Tailwind CSS
+- **Styling**: ShadCdn-ui + Tailwind CSS
 - **Deployment**: Render (frontend) + Convex Cloud (backend)
 
 ## 🎯 Why This Stack?
