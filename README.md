@@ -19,7 +19,7 @@ A production-ready, full-stack chat application showcasing the power of modern w
 - **Backend**: Convex (real-time database & serverless functions)
 - **Authentication**: Clerk
 - **Styling**: Tailwind CSS
-- **Deployment**: Vercel (frontend) + Convex Cloud (backend)
+- **Deployment**: Render (frontend) + Convex Cloud (backend)
 
 ## 🎯 Why This Stack?
 
