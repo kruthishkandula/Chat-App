@@ -17,9 +17,8 @@ import type * as _utils from "../_utils.js";
 import type * as conversations_conversation from "../conversations/conversation.js";
 import type * as conversations_conversations from "../conversations/conversations.js";
 import type * as conversations_messages from "../conversations/messages.js";
+import type * as friends_requests from "../friends/requests.js";
 import type * as http from "../http.js";
-import type * as request from "../request.js";
-import type * as requests from "../requests.js";
 import type * as user from "../user.js";
 
 /**
@@ -35,9 +34,8 @@ declare const fullApi: ApiFromModules<{
   "conversations/conversation": typeof conversations_conversation;
   "conversations/conversations": typeof conversations_conversations;
   "conversations/messages": typeof conversations_messages;
+  "friends/requests": typeof friends_requests;
   http: typeof http;
-  request: typeof request;
-  requests: typeof requests;
   user: typeof user;
 }>;
 export declare const api: FilterApi<

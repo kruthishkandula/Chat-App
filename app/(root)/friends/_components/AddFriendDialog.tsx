@@ -35,7 +35,7 @@ const AddFriendDialog = (props: Props) => {
     }
   })
 
-  const { mutate: createRequest, pending } = useMutationState(api.request.create)
+  const { mutate: createRequest, pending } = useMutationState(api.friends.requests.create)
 
   const handleSubmit = async (data: sop) => {
     try {

@@ -9,8 +9,8 @@ import { api } from '@/convex/_generated/api'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { usePaginatedQuery, useQuery } from 'convex/react'
 import { ConvexError } from 'convex/values'
-import { Image, Phone, User, Video } from 'lucide-react'
-import { useParams } from 'next/navigation'
+import { ArrowBigLeft, ArrowLeft, Image, Phone, SendToBack, User, Video } from 'lucide-react'
+import { useParams, useRouter } from 'next/navigation'
 import { useCallback, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'sonner'
@@ -28,6 +28,7 @@ type sop = z.infer<typeof messageSchem>
 
 const ConversationPage = () => {
   const params = useParams()
+  const { back } = useRouter()
 
   const form = useForm<sop>({
     resolver: zodResolver(messageSchem),
@@ -142,6 +143,12 @@ const ConversationPage = () => {
       <div className='flex w-full flex-col h-full justify-between' >
         {/* header */}
         <div className='w-full flex flex-row py-4 justify-between border-b' >
+          <div className='lg:hidden'>
+            <Button size={'icon'} variant='default' onClick={() => back()} >
+              <ArrowBigLeft size={48} />
+            </Button>
+          </div>
+
           <div className='flex flex-row justify-start items-center gap-2' >
             <Avatar>
               <AvatarImage src={conversationDetails?.[0]?.imageUrl} />

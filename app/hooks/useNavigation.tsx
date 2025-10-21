@@ -9,7 +9,7 @@ type Props = {}
 const useNavigation = (props: Props) => {
     const pathname = usePathname()
 
-    const requestsCount = useQuery(api.requests.requestsCount)
+    const requestsCount = useQuery(api.friends.requests.requestsCount)
 
     const paths = useMemo(() => {
         return [

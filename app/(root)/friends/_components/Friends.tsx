@@ -2,16 +2,16 @@ import useMutationState from "@/app/hooks/useMutationState"
 import { api } from "@/convex/_generated/api"
 import { ConvexError } from "convex/values"
 import { toast } from "sonner"
-import { RequestCard } from "./Cards"
+import { FriendCard } from "./Cards"
 
 type Props = {
     requests: any
 }
 
-const FriendRequests = ({ requests = [] }: Props) => {
-    const { mutate, pending } = useMutationState(api.friends.requests.action)
+const Friends = ({ requests = [] }: Props) => {
+    const { mutate, pending } = useMutationState(api.friends.requests.removeFriend)
 
-    const handleFriendRequest = async (requestId: string, action: 'accept' | 'deny') => {
+    const handleFriendRemoval = async (requestId: string, action: 'accept' | 'deny') => {
         try {
             const resData = await mutate({
                 requestId: requestId,
@@ -20,7 +20,7 @@ const FriendRequests = ({ requests = [] }: Props) => {
 
             console.log('resData', resData)
 
-            toast.success('Friend removed successfully !!')
+            toast.success('Friend request accepted !!')
         } catch (error) {
             toast.error(error instanceof ConvexError ? error?.data : "Something Wen't wrong")
         }
@@ -30,11 +30,11 @@ const FriendRequests = ({ requests = [] }: Props) => {
         <>
             {
                 requests?.map((request: any) => (
-                    <RequestCard key={request._id} request={request} handleFriendRequest={handleFriendRequest} pending={pending} />
+                    <FriendCard key={request._id} request={request} handleRemoval={handleFriendRemoval} pending={pending} />
                 ))
             }
         </>
     )
 }
 
-export default FriendRequests
+export default Friends
