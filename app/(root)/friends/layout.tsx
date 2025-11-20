@@ -37,7 +37,7 @@ const FriendsLayout = ({ children }: Props) => {
 
     const AccordionView = ({ title, Content, description, index }: { title: string, Content: JSX.Element, description: string, index: number }) => {
         return (
-            <AccordionItem value={`item-${index}`}>
+            <AccordionItem key={`item-${index}`} value={`item-${index}`}>
                 <AccordionTrigger className='flex flex-row items-center' style={{ fontSize: '1.5rem', fontWeight: 'bold', textDecoration: 'none' }}>
                     {title}
                 </AccordionTrigger>

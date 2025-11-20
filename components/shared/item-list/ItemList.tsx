@@ -24,7 +24,7 @@ const ItemList = ({ title, Action, children }: Props) => {
                 <h2 className='text-xl tracking-wider font-bold'>{title}</h2>
                 {Action ? Action : null}
             </div>
-            <div className='w-full h-full flex-col items-center justify-start gap-4' >
+            <div className='w-full flex flex-col items-center justify-start gap-4' >
                 {children}
             </div>
         </Card>

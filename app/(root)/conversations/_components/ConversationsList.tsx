@@ -14,7 +14,7 @@ const ConversationsList = ({ conversations = [] }: Props) => {
         <>
             {
                 conversations?.map((request: any) => (
-                    <Card key={request._id} className="w-full  mt-4 p-2 flex-row items-center justify-between gap-2">
+                    <Card key={request._id} className="w-full mt-4 p-2 flex-row items-center justify-between gap-2">
                         <Link href={{
                             pathname: `/conversations/${request.conversationId}`,
                         }} >
